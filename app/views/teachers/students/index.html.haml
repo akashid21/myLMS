@@ -1,0 +1,20 @@
+%h1 All Students
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Age
+      %th Courses Enrolled
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= student.name
+        %td= student.email
+        %td= student.age
+        - courses = []
+        - student.enrollments.each { |n| courses<< Course.find_by(id: n.course_id).name }
+        - if courses.empty?
+          %td No enrolled courses
+        - else
+          %td= courses.join(', ')

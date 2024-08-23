@@ -1,0 +1,11 @@
+.sidebar.bg-dark.text-white
+  .p-3
+    / Application Name
+    %h4.mb-4 My Application
+    / Sidebar Buttons
+    - if current_admin
+      = render 'partials/admin_menu'
+    - if current_teacher
+      = render 'partials/teacher_menu'
+    - if current_student
+      = render 'partials/student_menu'

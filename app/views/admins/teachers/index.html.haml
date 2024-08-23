@@ -1,0 +1,16 @@
+%h1 All Teachers
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Age
+      %th Actions
+  %tbody
+    - @teachers.each do |teacher|
+      %tr
+        %td= teacher.name
+        %td= teacher.email
+        %td= teacher.age
+        %td
+          = link_to 'Show', admins_teacher_path(teacher)

@@ -1,0 +1,16 @@
+%h1 All Courses
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Enrollment
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.name
+        %td= course.description
+        - if current_student.enrollments.find_by(course_id: course.id).present?
+          %td Enrolled
+        - else
+          %td= button_to 'Enroll', students_course_enrollments_path(course)
