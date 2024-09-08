@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :admin do
+  factory :student do
     name { Faker::Name.first_name }
     email { Faker::Internet.email }
     age { Faker::Number.between(from: 2, to: 80).to_i }

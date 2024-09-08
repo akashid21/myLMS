@@ -12,8 +12,13 @@
         %td= student.name
         %td= student.email
         %td= student.age
-        - courses = []
-        - student.enrollments.each { |n| courses<< Course.find_by(id: n.course_id).name }
+        - course = []
+        -# - student.enrollments.each { |n| courses<< n.name}
+        -# - if courses.empty?
+        -#   %td No enrolled courses
+        -# - else
+        -#   %td= courses.join(', ')
+        - courses = student.enrollments.map { |enrollment| enrollment.course.name }
         - if courses.empty?
           %td No enrolled courses
         - else

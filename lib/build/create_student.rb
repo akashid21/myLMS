@@ -2,16 +2,20 @@ require_relative '../../config/environment'
 
 module Build
   # Class used to build the seed data to the database.
-  class DatabaseBuilder
+  class StudentsBuilder
     # @return It destroyes all the records from the user table
     def reset_data
-      Course.destroy_all
+      Student.destroy_all
     end
 
     # @return It creates 10 user with all the attributes required using the factorybot
     def create_users
-      20.times do
-        FactoryBot.create(:course)
+      10.times do |num|
+        if num.even?
+          FactoryBot.create(:student, category: 'inactive')
+        else
+          FactoryBot.create(:student)
+        end
       end
     end
 

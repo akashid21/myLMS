@@ -1,10 +1,10 @@
 class Students::EnrollmentsController < Students::StudentsController
   def index
-    @enrollments = current_student.enrollments
+    # debugger
+    @enrollments = current_student.enrollments.includes(:course)
   end
 
   def create
-    # debugger
     @enollment = current_student.enrollments.new
     @enollment.course_id = params[:course_id]
     if @enollment.save

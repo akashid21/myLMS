@@ -6,7 +6,6 @@
       %th Description
   %tbody
     - @enrollments.each do |enrollment|
-      - course = Course.find_by(id: enrollment.course_id)
       %tr
-        %td= course.name
-        %td= course.description
+        %td= enrollment.course.name
+        %td= enrollment.course.description

@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 class Students::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
   before_action :check_student
 
   private
 
   def check_student
-    return unless current_admin
-    redirect_to root_path, alert: 'Unauthorized action'
+    if current_teacher || current_admin
+      if current_admin
+        redirect_to admins_homepage_path, alert: 'Unauthorizedsssss access.'
+      elsif current_teacher
+        redirect_to teachers_homepage_path, alert: 'Unauthorizedsssss access.'
+      end
+    end
   end
   # GET /resource/sign_in
   # def new

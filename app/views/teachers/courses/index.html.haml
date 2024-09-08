@@ -1,0 +1,11 @@
+%h1 All Courses
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Description
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= link_to "#{course.name}", teachers_course_path(course)
+        %td= course.description

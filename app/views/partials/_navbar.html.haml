@@ -1,0 +1,18 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.position-fixed
+  .container-fluid
+    %a.navbar-brand{href: "#"} MyLms
+    %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", type: "button"}
+      %span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      %ul.navbar-nav.ms-auto
+        %li.nav-item
+          = link_to 'Home', root_path, class: 'nav-link'
+        - if current_admin
+          %li.nav-item
+            = link_to 'Admin Dashboard', class: 'nav-link'
+        - elsif current_teacher
+          %li.nav-item
+            = link_to 'Teacher Dashboard',  class: 'nav-link'
+        - elsif current_student
+          %li.nav-item
+            = link_to 'Student Dashboard',class: 'nav-link'

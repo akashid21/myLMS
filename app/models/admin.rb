@@ -4,11 +4,5 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: {
-    admin: 'admin', 
-    teacher: 'teacher',
-    student: 'student' 
-  }
-
-  validates :name, :age, :role, presence: true
+  validates :name, :age, presence: true
 end

@@ -1,0 +1,11 @@
+%h1= "All students for #{@course.name}"
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th email
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= student.name
+        %td= student.email

@@ -9,4 +9,6 @@
 #   end
 
 require_relative '../lib/build/create_courses'
+require_relative '../lib/build/create_student'
 Build::DatabaseBuilder.new.run
+Build::StudentsBuilder.new.run

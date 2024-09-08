@@ -1,11 +1,13 @@
 class Admins::SessionsController < Devise::SessionsController
   before_action :check_admin
 
-  private 
+  private
 
   def check_admin
-    # debugger
-    return unless current_student
-    redirect_to admins_homepage_path, alert: 'Unauthorized acces'
+    if current_student
+      redirect_to students_homepage_path, alert: 'Unauthorized access for student'
+    elsif current_teacher
+      redirect_to teachers_homepage_path, alert: 'Unauthorized acces for teacher'
+    end
   end
 end

@@ -1,0 +1,7 @@
+=form_with model: @avatar, url: teachers_update_avatar_path, method: :patch do |f|
+  =f.label :avatar
+  =f.file_field :avatar
+  =f.submit
+
+- if current_teacher.avatar.attached?
+  = image_tag(current_teacher.avatar, style: 'height: 200px; width: 200px; border-radius: 50% ')

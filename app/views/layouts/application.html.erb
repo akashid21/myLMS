@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", media: 'all' %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-white">
+  <body>
+    <%= render 'partials/navbar' %>
     <div class="d-flex">
       <%= render 'partials/sidebar' %>
       <div class="content flex-grow-1 p-3">
